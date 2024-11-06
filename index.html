@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Цветок для Сымбат</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-color: black;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        
+        .flower-image {
+            width: 400px; /* Увеличенный размер изображения */
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .message {
+            font-size: 28px;
+            color: white;
+            position: absolute;
+            top: -100px; /* Начальная позиция за пределами экрана */
+            animation: slideDown 2s forwards;
+        }
+
+        /* Анимация для текста */
+        @keyframes slideDown {
+            0% {
+                top: -100px;
+                opacity: 0;
+            }
+            100% {
+                top: 20px; /* Позиция текста */
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Замените ссылку src на URL нужного изображения цветка -->
+    <img src="https://wallpaper.forfun.com/fetch/65/65f0fc8682cc8d575e841eee9a166d27.jpeg" alt="Цветок" class="flower-image">
+
+    <div class="message">Мырзабектен Ұнаржанға🌸</div>
+</body>
+</html>
