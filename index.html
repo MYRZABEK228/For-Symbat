@@ -1,53 +1,96 @@
-<!DOCTYPE html>
-<html lang="kk">
+<!DOCTYPE html><html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Цветок для Ұнаржан</title>
-    <style>
-        body {
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100vh;
-            background-color: black;
-            overflow: hidden;
-            font-family: Arial, sans-serif;
-        }
-        
-        .flower-image {
-            width: 400px; /* Увеличенный размер изображения */
-            height: auto;
-            margin-bottom: 20px;
-        }
-
-        .message {
-            font-size: 28px;
-            color: white;
-            position: absolute;
-            top: -100px; /* Начальная позиция за пределами экрана */
-            animation: slideDown 2s forwards;
-        }
-
-        /* Анимация для текста */
-        @keyframes slideDown {
-            0% {
-                top: -100px;
-                opacity: 0;
-            }
-            100% {
-                top: 20px; /* Позиция текста */
-                opacity: 1;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Memories</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f9fc;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background: #4a90e2;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-top: 0;
+    }
+    .memory-form textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      resize: none;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+    .memory-form button {
+      padding: 10px 20px;
+      background: #4a90e2;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .memory-form button:hover {
+      background: #357ab7;
+    }
+    .memories {
+      margin-top: 20px;
+    }
+    .memory {
+      background: #f0f4fa;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .timestamp {
+      font-size: 12px;
+      color: gray;
+      margin-top: 5px;
+    }
+  </style>
 </head>
 <body>
-    <!-- Замените ссылку src на URL нужного изображения цветка -->
-    <img src="https://wallpaper.forfun.com/fetch/65/65f0fc8682cc8d575e841eee9a166d27.jpeg" alt="Цветок" class="flower-image">
+  <header>📚 Student Memories</header>
+  <div class="container">
+    <h2>Share Your Memory</h2>
+    <div class="memory-form">
+      <textarea id="memoryInput" rows="4" placeholder="Write your memory here..."></textarea>
+      <button onclick="addMemory()">Add Memory</button>
+    </div>
+    <div class="memories" id="memoriesList"></div>
+  </div>  <script>
+    function addMemory() {
+      const input = document.getElementById("memoryInput");
+      const text = input.value.trim();
+      if (text === "") return;
 
-    <div class="message">Мырзабектен Ұнаржанға🌸</div>
-</body>
+      const memoryDiv = document.createElement("div");
+      memoryDiv.className = "memory";
+      memoryDiv.innerHTML = `
+        <p>${text}</p>
+        <div class="timestamp">${new Date().toLocaleString()}</div>
+      `;
+
+      document.getElementById("memoriesList").prepend(memoryDiv);
+      input.value = "";
+    }
+  </script></body>
 </html>
